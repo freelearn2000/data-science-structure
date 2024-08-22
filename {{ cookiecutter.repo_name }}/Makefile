@@ -89,7 +89,7 @@ create_environment:
 	pipenv --python $(PYTHON_VERSION)
 	@echo ">>> New pipenv created. Activate with:\npipenv shell"
 	{% elif cookiecutter.environment_manager == 'venv' -%}
-	python3 -m venv .env
+	python3 -m venv .myenv
 	@echo ">>> New venv created. Activate with:\nsource .env/bin/activate"
 	{% endif %}
 {% endif %}
