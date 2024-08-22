@@ -194,16 +194,16 @@
         },
         "choices": [
             {
-                "choice": "basic",
+                "choice": "none",
                 "help": {
-                    "description": "Basic common data science packages.",
+                    "description": "No extra packages.",
                     "more_information": ""
                 } 
             },
             {
-                "choice": "none",
+                "choice": "basic",
                 "help": {
-                    "description": "No extra packages.",
+                    "description": "Basic common data science packages.",
                     "more_information": ""
                 } 
             }

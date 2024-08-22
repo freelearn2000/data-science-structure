@@ -1,21 +1,19 @@
 packages = [
     "black",
     "flake8",
-    "mypy",
     "isort",
+    "pip",
     "python-dotenv",
-    "ipykernel",
 ]
 
 basic = [
+    "ipython",
+    "jupyterlab",
+    "matplotlib",
+    "notebook",
     "numpy",
     "pandas",
-    "scipy",
-    "statsmodels",
     "scikit-learn",
-    "matplotlib"
-    "seaborn",
-    "openpyxl",
 ]
 
 scaffold = [
@@ -23,7 +21,6 @@ scaffold = [
     "loguru",
     "tqdm",
 ]
-
 
 def write_dependencies(
     dependencies, packages, pip_only_packages, repo_name, module_name, python_version

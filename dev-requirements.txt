@@ -1,5 +1,14 @@
 -e .
 
+numpy
+pandas
+scipy
+statsmodels
+scikit-learn
+matplotlib
+seaborn
+openpyxl
+ipykernel
 ansi2html
 black
 build
