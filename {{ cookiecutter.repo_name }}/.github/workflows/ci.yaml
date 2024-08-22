@@ -24,8 +24,8 @@ jobs:
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip
-        python3 -m pip install pylint
-        python3 -m pip install coverage
+        python3 -m pip install black flake8 mypy
+        python3 -m pip install pylint coverage
         python3 -m pip install -r requirements.txt
 
     - name: Analyse code with pylint

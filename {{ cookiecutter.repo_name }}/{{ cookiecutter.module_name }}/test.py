@@ -1,7 +1,7 @@
 from pathlib import Path
 import typer
 from loguru import logger
-from {{ cookiecutter.module_name }}.config import MODELS_DIR, PROCESSED_DATA_DIR
+from config import MODELS_DIR, PROCESSED_DATA_DIR
 
 
 app = typer.Typer()
@@ -15,6 +15,7 @@ def main(
     predictions_path: Path = PROCESSED_DATA_DIR / "test_predictions.csv",
     # -----------------------------------------
 ):
+    
     # ---- REPLACE THIS WITH YOUR OWN CODE ----
     logger.info("Performing inference for model...")
     logger.success("Inference complete.")

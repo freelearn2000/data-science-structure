@@ -1,7 +1,7 @@
 from pathlib import Path
 import typer
 from loguru import logger
-from {{ cookiecutter.module_name }}.config import MODELS_DIR, PROCESSED_DATA_DIR
+from config import MODELS_DIR, PROCESSED_DATA_DIR
 
 
 app = typer.Typer()
@@ -15,6 +15,7 @@ def main(
     model_path: Path = MODELS_DIR / "model.pkl",
     # -----------------------------------------
 ):
+    
     # ---- REPLACE THIS WITH YOUR OWN CODE ----
     logger.info("Training some model...")
     logger.success("Modeling training complete.")

@@ -4,11 +4,34 @@
 
 PROJECT_NAME = {{ cookiecutter.repo_name }}
 PYTHON_VERSION = {{ cookiecutter.python_version_number }}
-PYTHON_INTERPRETER = python
+PYTHON_INTERPRETER = python3
 
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
+
+{% if cookiecutter.environment_manager != 'none' %}
+## Set up python interpreter environment
+.PHONY: create_environment
+create_environment:
+	{% if cookiecutter.environment_manager == 'conda' -%}
+	{% if cookiecutter.dependency_file != 'environment.yml' %}
+	conda create --name $(PROJECT_NAME) python=$(PYTHON_VERSION) -y
+	{% else -%}
+	conda env create --name $(PROJECT_NAME) -f environment.yml
+	{% endif %}
+	@echo ">>> conda env created. Activate with:\nconda activate $(PROJECT_NAME)"
+	{% elif cookiecutter.environment_manager == 'virtualenv' -%}
+	@bash -c "if [ ! -z `which virtualenvwrapper.sh` ]; then source `which virtualenvwrapper.sh`; mkvirtualenv $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER); else mkvirtualenv.bat $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER); fi"
+	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"
+	{% elif cookiecutter.environment_manager == 'pipenv' -%}
+	pipenv --python $(PYTHON_VERSION)
+	@echo ">>> New pipenv created. Activate with:\npipenv shell"
+	{% elif cookiecutter.environment_manager == 'venv' -%}
+	python3 -m venv .venv
+	@echo ">>> New venv created. Activate with:\nsource .venv/bin/activate"
+	{% endif %}
+{% endif %}
 
 {% if cookiecutter.dependency_file != 'none' %}
 ## Install Python Dependencies
@@ -23,7 +46,6 @@ requirements:
 	pipenv install
 	{% endif %}
 {% endif %}
-
 
 ## Delete all compiled Python files
 .PHONY: clean
@@ -70,31 +92,6 @@ sync_data_up:
 	gsutil -m rsync -r data/ gs://{{ cookiecutter.dataset_storage.gcs.bucket }}/data/
 	{% endif %}
 {% endif %}
-
-{% if cookiecutter.environment_manager != 'none' %}
-## Set up python interpreter environment
-.PHONY: create_environment
-create_environment:
-	{% if cookiecutter.environment_manager == 'conda' -%}
-	{% if cookiecutter.dependency_file != 'environment.yml' %}
-	conda create --name $(PROJECT_NAME) python=$(PYTHON_VERSION) -y
-	{% else -%}
-	conda env create --name $(PROJECT_NAME) -f environment.yml
-	{% endif %}
-	@echo ">>> conda env created. Activate with:\nconda activate $(PROJECT_NAME)"
-	{% elif cookiecutter.environment_manager == 'virtualenv' -%}
-	@bash -c "if [ ! -z `which virtualenvwrapper.sh` ]; then source `which virtualenvwrapper.sh`; mkvirtualenv $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER); else mkvirtualenv.bat $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER); fi"
-	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"
-	{% elif cookiecutter.environment_manager == 'pipenv' -%}
-	pipenv --python $(PYTHON_VERSION)
-	@echo ">>> New pipenv created. Activate with:\npipenv shell"
-	{% elif cookiecutter.environment_manager == 'venv' -%}
-	python3 -m venv .venv
-	source .venv/bin/activate
-	@echo ">>> New venv created. Activate with:\nsource .venv/bin/activate"
-	{% endif %}
-{% endif %}
-
 
 #################################################################################
 # PROJECT RULES                                                                 #

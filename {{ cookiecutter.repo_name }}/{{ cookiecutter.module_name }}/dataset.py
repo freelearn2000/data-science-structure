@@ -1,7 +1,7 @@
 from pathlib import Path
 import typer
 from loguru import logger
-from {{ cookiecutter.module_name }}.config import PROCESSED_DATA_DIR, RAW_DATA_DIR
+from config import PROCESSED_DATA_DIR, RAW_DATA_DIR
 
 
 app = typer.Typer()
@@ -14,6 +14,7 @@ def main(
     output_path: Path = PROCESSED_DATA_DIR / "dataset.csv",
     # ----------------------------------------------
 ):
+    
     # ---- REPLACE THIS WITH YOUR OWN CODE ----
     logger.info("Processing dataset...")
     logger.success("Processing dataset complete.")

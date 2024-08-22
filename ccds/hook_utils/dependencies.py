@@ -1,19 +1,39 @@
+# packages = [
+#     "black",
+#     "flake8",
+#     "isort",
+#     "pip",
+#     "python-dotenv",
+# ]
+
 packages = [
     "black",
     "flake8",
+    "mypy",
     "isort",
-    "pip",
     "python-dotenv",
+    "ipykernel",
+    "openpyxl",
 ]
 
+# basic = [
+#     "ipython",
+#     "jupyterlab",
+#     "matplotlib",
+#     "notebook",
+#     "numpy",
+#     "pandas",
+#     "scikit-learn",
+# ]
+
 basic = [
-    "ipython",
-    "jupyterlab",
-    "matplotlib",
-    "notebook",
     "numpy",
     "pandas",
+    "scipy",
+    "statsmodels",
     "scikit-learn",
+    "matplotlib"
+    "seaborn",
 ]
 
 scaffold = [
