@@ -28,6 +28,6 @@
         "basic"
     ],
     "open_source_license": ["No license file", "MIT", "BSD-3-Clause"],
-    "docs": ["mkdocs", "none"],
+    "docs": ["none", "mkdocs"],
     "include_code_scaffold": ["Yes", "No"]
 }
