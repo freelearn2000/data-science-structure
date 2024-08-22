@@ -120,6 +120,13 @@
         },
         "choices": [
             {
+                "choice": "venv",
+                "help": {
+                    "description": "Simple virtual environments.",
+                    "more_information": "[Docs](https://docs.python.org/3/library/venv.html)"
+                } 
+            },
+            {
                 "choice": "virtualenv",
                 "help": {
                     "description": "Simple wrapper on venv with more features.",
@@ -136,7 +143,7 @@
             {
                 "choice": "pipenv",
                 "help": {
-                    "description": "Manages dependencies and virual environments.",
+                    "description": "Manages dependencies and virtual environments.",
                     "more_information": "[Docs](https://pipenv.pypa.io/en/latest/)"
                 } 
             },
