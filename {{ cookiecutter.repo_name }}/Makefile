@@ -12,7 +12,7 @@ PYTHON_INTERPRETER = python3
 
 {% if cookiecutter.environment_manager != 'none' %}
 ## Set up python interpreter environment
-.PHONY: create_environment
+.PHONY: create
 create_environment:
 	{% if cookiecutter.environment_manager == 'conda' -%}
 	{% if cookiecutter.dependency_file != 'environment.yml' %}
