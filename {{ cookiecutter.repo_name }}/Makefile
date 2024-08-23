@@ -13,7 +13,7 @@ PYTHON_INTERPRETER = python3
 {% if cookiecutter.environment_manager != 'none' %}
 ## Set up python interpreter environment
 .PHONY: create
-create_environment:
+create:
 	{% if cookiecutter.environment_manager == 'conda' -%}
 	{% if cookiecutter.dependency_file != 'environment.yml' %}
 	conda create --name $(PROJECT_NAME) python=$(PYTHON_VERSION) -y
