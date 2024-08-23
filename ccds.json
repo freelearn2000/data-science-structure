@@ -25,7 +25,8 @@
     ],
     "pydata_packages": [
         "none",
-        "basic"
+        "basic",
+        "full"
     ],
     "open_source_license": ["No license file", "MIT", "BSD-3-Clause"],
     "docs": ["none", "mkdocs"],

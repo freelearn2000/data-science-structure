@@ -16,6 +16,19 @@ basic = [
     "scikit-learn",
 ]
 
+full = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "statsmodels",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    "openpyxl",
+    "ipykernel",
+]
+
 scaffold = [
     "typer",
     "loguru",

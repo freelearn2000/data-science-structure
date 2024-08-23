@@ -206,6 +206,13 @@
                     "description": "Basic common data science packages.",
                     "more_information": ""
                 } 
+            },
+            {
+                "choice": "full",
+                "help": {
+                    "description": "Full data science packages.",
+                    "more_information": ""
+                } 
             }
         ]
     },
